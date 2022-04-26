@@ -71,7 +71,7 @@ jupyter lab
 
 ## Publish
 
+The setup.py script will rebuild the static files, therefore run:
 ```
-npm run build:labextension
 sh publish.sh
 ```
