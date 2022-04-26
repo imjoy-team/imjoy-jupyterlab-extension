@@ -68,3 +68,10 @@ pip install jupyter_packaging
 npm run install:extension
 jupyter lab
 ```
+
+## Publish
+
+```
+npm run build:labextension
+sh publish.sh
+```
