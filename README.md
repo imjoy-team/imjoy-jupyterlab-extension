@@ -1,6 +1,6 @@
 # imjoy-jupyterlab-extension
 
-![Github Actions Status](https://github.com.imjoy-team/imjoy-jupyterlab-extension/workflows/Build/badge.svg)
+![Github Actions Status](https://github.com/imjoy-team/imjoy-jupyterlab-extension/workflows/Build/badge.svg)
 
 Run ImJoy plugins in JupyterLab
 
