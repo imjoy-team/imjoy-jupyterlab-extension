@@ -1,6 +1,6 @@
 # imjoy_jupyterlab_extension
 
-[![Github Actions Status](https://github.com/imjoy-team/imjoy-jupyterlab-extension.git/workflows/Build/badge.svg)](https://github.com/imjoy-team/imjoy-jupyterlab-extension.git/actions/workflows/build.yml)[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/imjoy-team/imjoy-jupyterlab-extension.git/main?urlpath=lab)
+[![Build](https://github.com/imjoy-team/imjoy-jupyterlab-extension/actions/workflows/build.yml/badge.svg)](https://github.com/imjoy-team/imjoy-jupyterlab-extension/actions/workflows/build.yml)[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/imjoy-team/imjoy-jupyterlab-extension.git/main?urlpath=lab)
 Run ImJoy plugins in JupyterLab
 
 ![screenshot of the imjoy jupyterlab extension](docs/Screenshot 2023-11-14 at 11.14.19.png)
