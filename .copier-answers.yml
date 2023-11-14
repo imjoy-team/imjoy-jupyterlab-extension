@@ -1,0 +1,14 @@
+# Changes here will be overwritten by Copier; NEVER EDIT MANUALLY
+_commit: v4.2.4
+_src_path: https://github.com/jupyterlab/extension-template
+author_email: oeway007@gmail.com
+author_name: Wei Ouyang
+has_binder: true
+has_settings: false
+kind: frontend
+labextension_name: imjoy-jupyterlab-extension
+project_short_description: Run ImJoy plugins in JupyterLab
+python_name: imjoy_jupyterlab_extension
+repository: https://github.com/imjoy-team/imjoy-jupyterlab-extension.git
+test: false
+
