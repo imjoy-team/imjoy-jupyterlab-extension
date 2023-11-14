@@ -75,7 +75,6 @@ folder is located. Then you can remove the symlink named `imjoy-jupyterlab-exten
 
 See [RELEASE](RELEASE.md)
 
-
 ## Testing the extension
 
 Start jupyter lab:

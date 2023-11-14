@@ -11,7 +11,9 @@ const plugin: JupyterFrontEndPlugin<void> = {
   description: 'Run ImJoy plugins in JupyterLab',
   autoStart: true,
   activate: (app: JupyterFrontEnd) => {
-    console.log('JupyterLab extension imjoy-jupyterlab-extension is activated!');
+    console.log(
+      'JupyterLab extension imjoy-jupyterlab-extension is activated!'
+    );
   }
 };
 
