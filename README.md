@@ -59,7 +59,7 @@ By default, the `jlpm build` command generates the source maps for this extensio
 ```bash
 nvm use 16
 npm i -d @types/node # required to solve https://github.com/microsoft/TypeScript/issues/51567
-jupyter lab build --minimize=False
+jupyter lab build
 ```
 
 ### Development uninstall

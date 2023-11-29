@@ -1,6 +1,4 @@
-pip install -U twine
-pip install -U wheel
-python3 -m pip install --upgrade build
+pip install -U build twine hatch
 rm -rf ./build
 rm ./dist/*
 python3 -m build
