@@ -1,8 +1,8 @@
 pip install -U twine
 pip install -U wheel
-pip install -U setuptools
+python3 -m pip install --upgrade build
 rm -rf ./build
 rm ./dist/*
-python3 setup.py sdist bdist_wheel
+python3 -m build
 twine upload dist/*
 rm -rf ./build
