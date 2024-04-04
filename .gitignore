@@ -1,6 +1,3 @@
-*.ipynb
-imjoy-jupyterlab-extension
-.pypirc
 *.bundle.*
 lib/
 node_modules/
@@ -8,12 +5,15 @@ node_modules/
 .eslintcache
 .stylelintcache
 *.egg-info/
-
 .ipynb_checkpoints
 *.tsbuildinfo
-imjoy_jupyterlab_extension/labextension
+imjoy-jupyterlab-extension/labextension
 # Version file is handled by hatchling
-imjoy_jupyterlab_extension/_version.py
+imjoy-jupyterlab-extension/_version.py
+
+# Integration tests
+ui-tests/test-results/
+ui-tests/playwright-report/
 
 # Created by https://www.gitignore.io/api/python
 # Edit at https://www.gitignore.io/?templates=python

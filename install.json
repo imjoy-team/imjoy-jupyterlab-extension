@@ -1,5 +1,5 @@
 {
   "packageManager": "python",
-  "packageName": "imjoy_jupyterlab_extension",
-  "uninstallInstructions": "Use your Python package manager (pip, conda, etc.) to uninstall the package imjoy_jupyterlab_extension"
+  "packageName": "imjoy-jupyterlab-extension",
+  "uninstallInstructions": "Use your Python package manager (pip, conda, etc.) to uninstall the package imjoy-jupyterlab-extension"
 }

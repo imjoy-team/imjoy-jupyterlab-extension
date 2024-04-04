@@ -230,7 +230,8 @@ function isSerializable(object) {
       data.peer_id = this._peer_id;
       const split = removeBuffers(data);
       split.state.__buffer_paths__ = split.buffer_paths;
-      this.comm.send(split.state, {}, {}, split.buffers);
+      // NOTE: updated for newer kernels, the send signature is different
+      this.comm.send(split.state, null, split.buffers);
     }
   }
       

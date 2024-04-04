@@ -23,6 +23,7 @@ const plugin: JupyterFrontEndPlugin<void> =  {
       auto: false,
       restore: false
     });
+
     const jupyterBaseUrl = app.serviceManager.settings.serverSettings.baseUrl;
     app.docRegistry.addWidgetExtension(
       'Notebook',
