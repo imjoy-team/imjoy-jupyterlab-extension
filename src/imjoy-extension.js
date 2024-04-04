@@ -5,6 +5,7 @@
 import { loadImJoyBasicApp } from "imjoy-core/dist/imjoy-loader";
 import { setupRPC } from "imjoy-core/dist/imjoy-rpc";
 import { githubUrlRaw, convertZenodoFileUrl } from "./utils.js";
+import "reflect-metadata";
 
 import {
   showErrorMessage, Spinner

@@ -8,7 +8,7 @@ has_settings: false
 kind: frontend
 labextension_name: imjoy-jupyterlab-extension
 project_short_description: Run ImJoy plugins in JupyterLab
-python_name: imjoy-jupyterlab-extension
+python_name: imjoy_jupyterlab_extension
 repository: https://github.com/imjoy-team/imjoy-jupyterlab-extension
 test: true
 

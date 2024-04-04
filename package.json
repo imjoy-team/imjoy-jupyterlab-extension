@@ -1,6 +1,6 @@
 {
     "name": "imjoy-jupyterlab-extension",
-    "version": "0.2.1",
+    "version": "0.2.5",
     "description": "Run ImJoy plugins in JupyterLab",
     "keywords": [
         "jupyter",
@@ -38,7 +38,7 @@
         "clean": "jlpm clean:lib",
         "clean:lib": "rimraf lib tsconfig.tsbuildinfo",
         "clean:lintcache": "rimraf .eslintcache .stylelintcache",
-        "clean:labextension": "rimraf imjoy-jupyterlab-extension/labextension imjoy-jupyterlab-extension/_version.py",
+        "clean:labextension": "rimraf imjoy_jupyterlab_extension/labextension imjoy_jupyterlab_extension/_version.py",
         "clean:all": "jlpm clean:lib && jlpm clean:labextension && jlpm clean:lintcache",
         "eslint": "jlpm eslint:check --fix",
         "eslint:check": "eslint . --cache --ext .ts,.tsx",
@@ -57,7 +57,8 @@
     },
     "dependencies": {
         "@jupyterlab/application": "^4.0.0",
-        "imjoy-core": "^0.14.5"
+        "imjoy-core": "^0.14.5",
+        "reflect-metadata": "0.1.13"
     },
     "devDependencies": {
         "@jupyterlab/builder": "^4.0.0",
@@ -96,7 +97,7 @@
     },
     "jupyterlab": {
         "extension": true,
-        "outputDir": "imjoy-jupyterlab-extension/labextension"
+        "outputDir": "imjoy_jupyterlab_extension/labextension"
     },
     "eslintIgnore": [
         "node_modules",

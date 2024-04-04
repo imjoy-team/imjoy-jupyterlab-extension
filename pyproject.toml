@@ -3,7 +3,7 @@ requires = ["hatchling>=1.5.0,<1.22.2", "jupyterlab>=4.0.0,<5", "hatch-nodejs-ve
 build-backend = "hatchling.build"
 
 [project]
-name = "imjoy-jupyterlab-extension"
+name = "imjoy_jupyterlab_extension"
 readme = "README.md"
 license = { file = "LICENSE" }
 requires-python = ">=3.8"
@@ -34,24 +34,24 @@ source = "nodejs"
 fields = ["description", "authors", "urls"]
 
 [tool.hatch.build.targets.sdist]
-artifacts = ["imjoy-jupyterlab-extension/labextension"]
+artifacts = ["imjoy_jupyterlab_extension/labextension"]
 exclude = [".github", "binder"]
 
 [tool.hatch.build.targets.wheel.shared-data]
-"imjoy-jupyterlab-extension/labextension" = "share/jupyter/labextensions/imjoy-jupyterlab-extension"
+"imjoy_jupyterlab_extension/labextension" = "share/jupyter/labextensions/imjoy-jupyterlab-extension"
 "install.json" = "share/jupyter/labextensions/imjoy-jupyterlab-extension/install.json"
 
 [tool.hatch.build.hooks.version]
-path = "imjoy-jupyterlab-extension/_version.py"
+path = "imjoy_jupyterlab_extension/_version.py"
 
 [tool.hatch.build.hooks.jupyter-builder]
 dependencies = ["hatch-jupyter-builder>=0.5"]
 build-function = "hatch_jupyter_builder.npm_builder"
 ensured-targets = [
-    "imjoy-jupyterlab-extension/labextension/static/style.js",
-    "imjoy-jupyterlab-extension/labextension/package.json",
+    "imjoy_jupyterlab_extension/labextension/static/style.js",
+    "imjoy_jupyterlab_extension/labextension/package.json",
 ]
-skip-if-exists = ["imjoy-jupyterlab-extension/labextension/static/style.js"]
+skip-if-exists = ["imjoy_jupyterlab_extension/labextension/static/style.js"]
 
 [tool.hatch.build.hooks.jupyter-builder.build-kwargs]
 build_cmd = "build:prod"
@@ -61,7 +61,7 @@ npm = ["jlpm"]
 build_cmd = "install:extension"
 npm = ["jlpm"]
 source_dir = "src"
-build_dir = "imjoy-jupyterlab-extension/labextension"
+build_dir = "imjoy_jupyterlab_extension/labextension"
 
 [tool.jupyter-releaser.options]
 version_cmd = "hatch version"
