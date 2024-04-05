@@ -1,9 +1,11 @@
-# imjoy_jupyterlab_extension
+# ImJoy Jupyterlab Extension
+[![Github Actions Status](https://github.com/imjoy-team/imjoy-jupyterlab-extension/workflows/Build/badge.svg)](https://github.com/imjoy-team/imjoy-jupyterlab-extension/actions/workflows/build.yml)
 
-[![Build](https://github.com/imjoy-team/imjoy-jupyterlab-extension/actions/workflows/build.yml/badge.svg)](https://github.com/imjoy-team/imjoy-jupyterlab-extension/actions/workflows/build.yml)[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/imjoy-team/imjoy-jupyterlab-extension.git/main?urlpath=lab)
 Run ImJoy plugins in JupyterLab
 
 ![screenshot of the imjoy jupyterlab extension](<./docs/Screenshot 2023-11-14 at 11.14.19.png>)
+
+
 
 ## Requirements
 
@@ -14,7 +16,7 @@ Run ImJoy plugins in JupyterLab
 To install the extension, execute:
 
 ```bash
-pip install imjoy_jupyterlab_extension
+pip install imjoy-jupyterlab-extension
 ```
 
 ## Uninstall
@@ -22,7 +24,7 @@ pip install imjoy_jupyterlab_extension
 To remove the extension, execute:
 
 ```bash
-pip uninstall imjoy_jupyterlab_extension
+pip uninstall imjoy-jupyterlab-extension
 ```
 
 ## Contributing
@@ -37,17 +39,20 @@ The `jlpm` command is JupyterLab's pinned version of
 
 ```bash
 # Clone the repo to your local environment
-# Change directory to the imjoy_jupyterlab_extension directory
-npm run build
+# Change directory to the imjoy-jupyterlab-extension directory
 # Install package in development mode
 pip install -e "."
 # Link your development version of the extension with JupyterLab
 jupyter labextension develop . --overwrite
+# Rebuild extension Typescript source after making changes
+jlpm build
 ```
 
 You can watch the source directory and run JupyterLab at the same time in different terminals to watch for changes in the extension's source and automatically rebuild the extension.
 
 ```bash
+# Watch the source directory in one terminal, automatically rebuilding when needed
+jlpm watch
 # Run JupyterLab in another terminal
 jupyter lab
 ```
@@ -57,46 +62,44 @@ With the watch command running, every saved change will immediately be built loc
 By default, the `jlpm build` command generates the source maps for this extension to make it easier to debug using the browser dev tools. To also generate source maps for the JupyterLab core extensions, you can run the following command:
 
 ```bash
-nvm use 16
-npm i -d @types/node # required to solve https://github.com/microsoft/TypeScript/issues/51567
-jupyter lab build
+jupyter lab build --minimize=False
+```
+
+### Release the package
+```
+sh scripts/publish.sh
 ```
 
 ### Development uninstall
 
 ```bash
-pip uninstall imjoy_jupyterlab_extension
+pip uninstall imjoy-jupyterlab-extension
 ```
 
 In development mode, you will also need to remove the symlink created by `jupyter labextension develop`
 command. To find its location, you can run `jupyter labextension list` to figure out where the `labextensions`
 folder is located. Then you can remove the symlink named `imjoy-jupyterlab-extension` within that folder.
 
+### Testing the extension
+
+#### Frontend tests
+
+This extension is using [Jest](https://jestjs.io/) for JavaScript code testing.
+
+To execute them, execute:
+
+```sh
+jlpm
+jlpm test
+```
+
+#### Integration tests
+
+This extension uses [Playwright](https://playwright.dev/docs/intro) for the integration tests (aka user level tests).
+More precisely, the JupyterLab helper [Galata](https://github.com/jupyterlab/jupyterlab/tree/master/galata) is used to handle testing the extension in JupyterLab.
+
+More information are provided within the [ui-tests](./ui-tests/README.md) README.
+
 ### Packaging the extension
 
 See [RELEASE](RELEASE.md)
-
-## Testing the extension
-
-Start jupyter lab:
-
-```bash
-jupyter lab
-```
-
-Open a notebook in jupyterlab, make sure the ImJoy icon is in the toolbar and run the following code in a notebook cell:
-
-```python
-from imjoy_rpc import api
-
-class ImJoyPlugin():
-    async def setup(self):
-        pass
-
-    async def run(self, ctx):
-        viewer = await api.createWindow(src="https://kaibu.org/#/app")
-
-        await viewer.view_image("https://images.proteinatlas.org/61448/1319_C10_2_blue_red_green.jpg")
-
-api.export(ImJoyPlugin())
-```

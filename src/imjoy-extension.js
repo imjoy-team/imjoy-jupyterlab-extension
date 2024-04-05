@@ -5,6 +5,9 @@
 import { loadImJoyBasicApp } from "imjoy-core/dist/imjoy-loader";
 import { setupRPC } from "imjoy-core/dist/imjoy-rpc";
 import { githubUrlRaw, convertZenodoFileUrl } from "./utils.js";
+// This is needed to patch the reflect for imjoy basic app
+// We also need to ensure reflect-metadata is <= 0.1.13
+import "reflect-metadata";
 
 import {
   showErrorMessage, Spinner
@@ -29,7 +32,7 @@ import os
 import ipykernel
 import micropip
 import sys
-await micropip.install([ "imjoy-rpc"])
+await micropip.install([ "imjoy-rpc", "numpy"])
 import imjoy_rpc
 if 'imjoy' not in sys.modules:
     sys.modules['imjoy'] = sys.modules['imjoy_rpc']
@@ -45,8 +48,19 @@ if not hasattr(ipykernel, 'connect'):
 `;
     const future = kernel.requestExecute({ code: kernel_patch } );
     await future.done
-    console.log('Pyodide kernel patch applied');
+    console.log('Kernel patch applied for ImJoy JupyterLab Extension');
 
+  }
+  else{
+    const kernel_patch = `
+import sys
+import imjoy_rpc
+if 'imjoy' not in sys.modules:
+    sys.modules['imjoy'] = sys.modules['imjoy_rpc']
+`;
+    const future = kernel.requestExecute({ code: kernel_patch } );
+    await future.done
+    console.log('Kernel patch applied for ImJoy JupyterLab Extension');
   }
 }
 
@@ -298,8 +312,9 @@ export class ImjoyExtension {
    */
   createNew(panel, context) {
     const button = new ToolbarButton({
-      tooltip: `ImJoy JupyterLab Extension`, // (version: ${version})`,
+      tooltip: `ImJoy JupyterLab Extension`,
     });
+    console.log(`ImJoy JupyterLab Extension is activated!`)
     panel.toolbar.insertItem(0, 'Run ImJoy Plugin', button);
 
     context.sessionContext.ready.then(async () => {
